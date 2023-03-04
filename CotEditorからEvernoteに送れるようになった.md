@@ -1,0 +1,55 @@
+---
+title : CotEditorからEvernoteに送れるようになった
+link : 5519
+date : Thu, 31 Mar 2011 03:24:45 +0000
+categories : ["物書き生活と道具箱"]
+tags : ["applescript","evernote"]
+draft : false
+author : 倉下忠憲
+---
+
+日常的にはMacのmiというテキストエディタを使っています。で、実体ファイルが必要ある時以外は、全てEvernoteでデータを保存しています。これで全然問題ありません。
+※誰かに送信するためのtxtファイルが必要な場合はdropboxに保存。
+
+その際、一般的には「グローバルなキーボードショートカット」を使うのが便利です。全ての文章を選択＋コピーして、ショートカットキーをポチッと押せば、すぐさまEvernoteにデータが送られます。
+※対応のキーは、メニュー→環境設定→ショートカット→「Evernoteにペースト」で確認できます。
+
+非常にお手軽なんですが、Mac版のクライアントアプリだと「一行目がタイトルにならない」問題が発生します。Win版だと素直に一行目がタイトルになってくれていたので、後はタグ付けorノートブックの移動だけで完了です。が、Mac版のこの仕様だと一行目をコピペしてタイトルに貼り付けるという、（ほとんど不毛な）作業がよけいに発生することになってしまいます。
+※名前未設定というタイトルが付く。
+
+これは、完成した文章だけではなく、思いついたメモを入力するときにも同様の「違和感」を感じていたので、自動的に一行目がタイトルになる（おそろしく簡易な）メモアプリを作りました。
+※<a href="https://rashita.net/blog/?p=5376">Mac中にEvernoteにメモを送るためだけのアプリ『goEvernote』（仮）</a>
+※現在このアプリはQuickSilverから起動する回数がトップになってます。
+
+個人的にはこれとほとんど同じ動作ができる「テキストエディタ」をずっと希求していました。「command + S」が「save」ではなく、「send to Evernote」であるほうが利用頻度の面からいっても便利です。しかし、単純なapplescriptだけでそういうエディタを作るのも難しそうですし、ちょっと落ち着いてから着手しようかと思っていたら、意外な解決策が。
+
+<h3>CotEditorならスクリプトが簡単実行</h3>
+最初にエディタを選択するときに候補に挙がっていた「CotEdiotr」。タブ型じゃないんで、放置していましたが「スクリプト」が登録できるとのこと。確かにそう言われてみればそんな機能もあったような・・・。
+
+<a href="http://d.hatena.ne.jp/E_Mattsan/20110326/1301137708">CotEditorのテキストからEvernoteのノートを作る</a>（エンジニアのソフトウェア的愛情）
+
+こちらのブログ記事で、CotEditorの内容をEvernoteに送ってくれるスクリプトが公開されています。
+
+<blockquote>
+テキストが選択状態なら選択されたテキストから、そうでなければテキスト全体からノートを作成します。１行目がノートのタイトルになります。
+</blockquote>
+
+この記事を見た瞬間、CotEditorを立ち上げて、すぐさまスクリプトを登録。
+
+で、今この文章はCotEditorで書いています。大変便利です。ショートカットキーは当てられないものの（と思います）、メニューからボタン一つで、Evernoteに送信されて、一行目がタイトルになっている。しかもapplescriptなので、自分で改竄すればあらかじめタグを付けることも可能。
+※例えば、スクリプトを３つおいて、それぞれ「R-style」「コンビニブログ」「シゴタノ！」というタグが付くものを使いわけることもできる。
+※2011年3月31日21:14追記：ショートカットキーは割り当てられるようです。詳しくは<a href="http://twitter.com/emattsan">@emattsan</a>さんからいただいたこの記事へのコメントを参照ください。
+
+何か不満があるとすれば、ファイルを保存しないままウィンドウを閉じるので、「保存してないけど、大丈夫か？」というダイアログが出てきてしまう点。まあこの辺は十分我慢できる範囲です。
+
+ちなみに記事で紹介されていたスクリプトを拡張子.scptで保存し、CotEditorのScriptMenuフォルダに移動して、メニューから「スクリプトメニューを更新」を押すだけでばっちり登録できました。<a href="http://twitter.com/emattsan">@emattsan</a>さんに感謝！
+
+
+<h3>さいごに</h3>
+身の回りのツールとEvernoteへの連携というか親和性がどんどん高まっています。個人的にgoEvernoteのver2を作りたいと思っているのですが、はまりだすと抜け出るのに時間がかかるという、ディスガイア４のようなトラップが仕込まれているのがコード書きの難点。皆様もご注意を。
+
+<strong>▼こんな一冊も：</strong>
+<table  border="0" cellpadding="5"><tr><td colspan="2"><a href="http://www.amazon.co.jp/EVERNOTE%E3%80%8C%E8%B6%85%E3%80%8D%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E8%A1%93-%E5%80%89%E4%B8%8B%E5%BF%A0%E6%86%B2/dp/4863540817%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Drashita1000-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863540817" target="_top">EVERNOTE「超」知的生産術</a><img src="http://www.assoc-amazon.jp/e/ir?t=rashita1000-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /></td></tr><tr><td valign="top"><a href="http://www.amazon.co.jp/EVERNOTE%E3%80%8C%E8%B6%85%E3%80%8D%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E8%A1%93-%E5%80%89%E4%B8%8B%E5%BF%A0%E6%86%B2/dp/4863540817%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Drashita1000-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863540817" target="_top"><img src="http://ecx.images-amazon.com/images/I/51OnU0cd03L._SL160_.jpg" border="0" alt="EVERNOTE「超」知的生産術" /></a></td><td valign="top"><font size="-1">倉下忠憲 <br /><br />シーアンドアール研究所  2011-02-26<br />売り上げランキング : 1536<br /><br /><br /><a href="http://www.amazon.co.jp/EVERNOTE%E3%80%8C%E8%B6%85%E3%80%8D%E7%9F%A5%E7%9A%84%E7%94%9F%E7%94%A3%E8%A1%93-%E5%80%89%E4%B8%8B%E5%BF%A0%E6%86%B2/dp/4863540817%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Drashita1000-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863540817" target="_top">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
+<table  border="0" cellpadding="5"><tr><td colspan="2"><a href="http://www.amazon.co.jp/%E6%97%A5%E6%9C%AC%E4%B8%80%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2-%E9%AD%94%E7%95%8C%E6%88%A6%E8%A8%98%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AC%E3%82%A4%E3%82%A24-%E9%80%9A%E5%B8%B8%E7%89%88/dp/B0043RT8U4%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Drashita1000-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0043RT8U4" target="_top">魔界戦記ディスガイア4(通常版)</a><img src="http://www.assoc-amazon.jp/e/ir?t=rashita1000-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /></td></tr><tr><td valign="top"><a href="http://www.amazon.co.jp/%E6%97%A5%E6%9C%AC%E4%B8%80%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2-%E9%AD%94%E7%95%8C%E6%88%A6%E8%A8%98%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AC%E3%82%A4%E3%82%A24-%E9%80%9A%E5%B8%B8%E7%89%88/dp/B0043RT8U4%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Drashita1000-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0043RT8U4" target="_top"><img src="http://ecx.images-amazon.com/images/I/61krCS488KL._SL160_.jpg" border="0" alt="魔界戦記ディスガイア4(通常版)" /></a></td><td valign="top"><font size="-1"><br />日本一ソフトウェア  2011-02-24<br />売り上げランキング : 205<br /><br /><br /><a href="http://www.amazon.co.jp/%E6%97%A5%E6%9C%AC%E4%B8%80%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2-%E9%AD%94%E7%95%8C%E6%88%A6%E8%A8%98%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AC%E3%82%A4%E3%82%A24-%E9%80%9A%E5%B8%B8%E7%89%88/dp/B0043RT8U4%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Drashita1000-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0043RT8U4" target="_top">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
